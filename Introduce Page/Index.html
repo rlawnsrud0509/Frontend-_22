@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPage2</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="js/Page.js"></script>
+
+</head>
+<body>
+
+    <button id="sidebarLeft" onclick="switchParagL()">
+        <
+    </button>
+
+    <button id="sidebarRight" onclick="switchParagR()">
+        >
+    </button>
+
+    <div id="workbar" class="wB">
+        <h3>About Kim Jun Gyoung...</h3>
+    </div>
+    <div id="container1">
+        <button id="paragBt1" onclick="showparag1 ()">나는...</button>
+        <button id="paragBt2" onclick="showparag2 ()">나의 장점</button>
+        <button id="paragBt3" onclick="showparag3 ()">나의 능력</button>
+    </div>
+
+    <div id="parag1">
+        <div>
+            <img id="div1Img1" src="images/PartyHat.png">   
+            <h4 id="paraGraph1">2006.05.09<br>부산에서 태어났습니다.</h4>
+        </div>
+        <div>
+            <img id="div1Img2" src="images/Family.png">
+            <h4>부모님과 누나가 한명 있습니다.</h4>
+        </div>
+        <div>
+            <img id="div1Img3" src="images/Exercise.png">
+            <h4>운동하는 것을 좋아합니다.</h4>
+        </div>
+        <div>
+            <img id="div1Img4" src="images/GameIcon.png">
+            <h4>자주 컴퓨터 게임을 합니다.</h4>
+        </div>
+    </div>
+
+    <div id="parag2">
+        Noting HERE Yet...ㅜ.ㅜ
+    </div>
+
+    <div id="parag3">
+        Noting HERE Yet...ㅜ.ㅜ
+    </div>
+
+    <div id="parag4">
+        내용이 궁금하면 버튼을 클릭해 주세요!
+    </div>
+
+    <div id="footer">
+        <hr style="
+        border: 2.5px solid #ccc;
+        width: 100%;">
+
+        <h3 id="date"></h3>
+        <h3 id="time"></h3>
+    </div>
+
+    <script>
+        
+        let paragBt1 = document.getElementById("paragBt1");
+        let paragBt2 = document.getElementById("paragBt2");
+        let paragBt3 = document.getElementById("paragBt3");
+
+        let parag1 = document.getElementById("parag1");
+        let parag2 = document.getElementById("parag2");
+        let parag3 = document.getElementById("parag3");
+        let parag4 = document.getElementById("parag4");
+        let fooTer = document.getElementById("footer");
+        let sidebarLeft = document.getElementById("sidebarLeft");
+        let sidebarRight = document.getElementById("sidebarRight");
+
+        let paraGraph1 = document.getElementById("paraGraph1");
+        let bt1 = document.getElementById("bt1");
+
+        function setClock(){
+            let dateInfo = new Date (); 
+            let hour = modifyNumber(dateInfo.getHours ());
+            let min = modifyNumber(dateInfo.getMinutes ());
+            let sec = modifyNumber(dateInfo.getSeconds ());
+            let year = dateInfo.getFullYear();
+            let month = dateInfo.getMonth() + 1;
+            let date = dateInfo.getDate();
+
+            document.getElementById("time").innerHTML = hour + ":" + min  + ":" + sec;
+            document.getElementById("date").innerHTML = year + "." + month + "." + date + " /";
+        }
+        function modifyNumber(time){
+        if(parseInt(time)<10){
+            return "0"+ time;
+        }
+        else
+            return time;
+        }
+        onload = function(){
+        setClock();
+        setInterval(setClock,1000);
+    }  
+
+        document.addEventListener('scroll', onScroll, { passive: true });
+        function onScroll () {
+            const scrollposition = pageYOffset;
+            const nav = document.querySelector('nav');
+
+            if (200<=scrollposition){
+                document.getElementById('workbar').style.top = '0';
+            }
+            else{
+                document.getElementById('workbar').style.top = '-100px';
+            }
+        } 
+
+function switchParagR () {
+    if(parag1.style.display == 'grid') {
+        showparag2 ();
+        return 0;
+    }
+
+    if(parag2.style.display == "block") {
+        showparag3 ();
+        return 0;
+    }
+}
+
+function switchParagL () {
+    if(parag2.style.display == 'block') {
+        showparag1 ();
+        return 0; 
+    }
+
+    if(parag3.style.display == "block") {
+        showparag2 ();
+        return 0;
+    }
+}
+
+
+
+function showparag1 () {
+    paragBt1.style.opacity=('1');
+    paragBt2.style.opacity=('0.3');
+    paragBt3.style.opacity=('0.3');
+    /* ParaGraph 1 STYLE*/
+    parag1.style.display="grid";
+    parag1.style.gridTemplateColumns="repeat(2, 1fr)";
+    parag1.style.gridTemplateRows="repeat(4, minmax(1fr, auto))";
+    parag1.style.gap="50px 40px";
+
+    parag2.style.display="none";
+    parag3.style.display="none";
+    parag4.style.display="none";
+    fooTer.style.display="block";
+    /* SideBar */
+    sidebarLeft.style.display="fixed";
+    sidebarRight.style.display="fixed";
+    sidebarLeft.style.opacity = ('0.1');
+    sidebarRight.style.opacity = ('0.3');
+}
+
+function showparag2 () {
+    paragBt1.style.opacity=('0.3');
+    paragBt2.style.opacity=('1');
+    paragBt3.style.opacity=('0.3');
+    parag1.style.display="none";
+    parag2.style.display="block";
+    parag3.style.display="none";
+    parag4.style.display="none";
+    fooTer.style.display="block";
+    sidebarLeft.style.display="fixed";
+    sidebarRight.style.display="fixed";
+    sidebarLeft.style.opacity = ('0.3');
+    sidebarRight.style.opacity = ('0.3');
+}
+
+function showparag3 () {
+    paragBt1.style.opacity=('0.3');
+    paragBt2.style.opacity=('0.3');
+    paragBt3.style.opacity=('1');
+    parag1.style.display="none";
+    parag2.style.display="none";
+    parag3.style.display="block";
+    parag4.style.display="none";
+    fooTer.style.display="block";
+    sidebarLeft.style.display="fixed";
+    sidebarRight.style.opacity = ('0.1');
+    sidebarLeft.style.opacity = ('0.3');
+}
+
+    </script>
+
+</body>
+</html>

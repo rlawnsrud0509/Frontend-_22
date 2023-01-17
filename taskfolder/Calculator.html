@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style> 
+        #calbody {
+            width: 280px;
+            height: 500px;
+            background-color: gray;
+            border: 4px solid black;
+            border-radius: 3%;
+            margin: 200px auto;
+            padding-left: 25px;
+        }
+
+        #printBox {
+            width:250px;
+            height: 150px;
+            background-color: white;
+            margin-top: 25px;
+            margin-bottom: 25px;
+            border: 3px solid black;
+            border-radius: 7%;
+            font-weight: bold;
+            font-size: 30px;
+            color: black;
+        }
+
+        .button {
+            width: 50px;
+            height: 50px;
+            margin: 5px 5px;
+            background-color: lightgray;
+            border: 3px solid black;
+            border-radius: 20%;
+            color: black;
+            font-weight: bold;
+            font-size: 20px;
+            transition-timing-function: ease-out;
+            transition-duration: 0.1s;
+        }
+
+        .button:hover {
+            color: white;
+            background-color: black;
+        }
+
+        .button:active {
+            transform: scale(0.9);
+            color: black;
+            background-color: white;
+        }
+
+        .plus {
+            width: 50px;
+            height: 100px;
+            margin: 5px 5px;
+            background-color: lightgray;
+            border: 3px solid black;
+            border-radius: 20%;
+            color: black;
+            font-weight: bold;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="calbody">
+        <div id="printBox">
+        </div>
+        <button class="button" id="n1">1</button>
+        <button class="button" id="n2">2</button>
+        <button class="button" id="n3">3</button>
+        <button class="button" id="n4">4</button>
+        <button class="button" id="n5">5</button>
+        <button class="button" id="n6">6</button>
+        <button class="button" id="n7">7</button>
+        <button class="button" id="n8">8</button>
+        <button class="button" id="n9">9</button>
+        <button class="button" id="n0">0</button>
+        <button class="button" id="n00">00</button>
+        <div id="">
+            <button class="minus" id="n-">-</button>
+            <button class="plus" id="n+">+</button>
+        </div>
+    </div>
+    <script>
+
+        let bt1 = document.getElementById("n1");
+        let bt2 = document.getElementById("n2");
+        let bt3 = document.getElementById("n3");
+        let bt4 = document.getElementById("n4");
+        let bt5 = document.getElementById("n5");
+        let bt6 = document.getElementById("n6");
+        let bt7 = document.getElementById("n7");
+        let bt8 = document.getElementById("n8");
+        let bt9 = document.getElementById("n9");
+        let bt0 = document.getElementById("n0");
+
+        let btPlus = document.getElementById("n+");
+        let btMinus = document.getElementById("n-");
+
+        let printBox = document.getElementById("printBox");
+
+
+        let calNum="";
+
+        bt1.addEventListener("click", function () {
+            printBox.innerHTML = calNum + '1';
+            calNum+='1';
+        });
+
+        bt2.addEventListener("click", function () {
+            printBox.innerHTML = calNum + '2';
+            calNum+='2';
+        });
+
+        bt3.addEventListener("click", function () {
+            printBox.innerHTML = calNum + '3';
+            calNum+='3';
+        });
+
+        bt4.addEventListener("click", function () {
+            printBox.innerHTML = calNum + '4';
+            calNum+='4';
+        });
+
+        bt5.addEventListener("click", function () {
+            printBox.innerHTML = calNum + '5';
+            calNum+='5';
+        });
+
+        bt6.addEventListener("click", function () {
+            printBox.innerHTML = calNum + '6';
+            calNum+='6';
+        });
+
+        bt7.addEventListener("click", function () {
+            printBox.innerHTML = calNum + '7';
+            calNum+='7';
+        });
+
+        bt8.addEventListener("click", function () {
+            printBox.innerHTML = calNum + '8';
+            calNum+='8';
+        });
+
+        bt9.addEventListener("click", function () {
+            printBox.innerHTML = calNum + '9';
+            calNum+='9';
+        });
+
+        bt0.addEventListener("click", function () {
+            printBox.innerHTML = calNum + '0';
+            calNum+='0';
+        });
+
+
+
+        for(let j=0; j<15; j++){
+            if(calNum[j]<10){
+                printBox.innerHTML = calNum[j];
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+@font-face {
+  font-family: "IM_Hyemin-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "IM_Hyemin-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Regular.woff2")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  width: 100%;
+  background-color: #eb9f9f;
+  position: relative;
+}
+
+.title {
+  font-family: "IM_Hyemin-Bold";
+  font-size: 50px;
+  text-align: center;
+  color: #fff;
+}
+
+.rottoNum_wrap {
+  width: 1000px;
+  height: 550px;
+  background: url(/images/gui-2311258_1280.png) no-repeat;
+
+  background-size: 100%;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+
+.ball {
+  border-radius: 100%;
+  background-color: #f1bbba;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  margin: 150px 10px 150px;
+  position: relative;
+}
+
+.ball span {
+  display: block;
+  font-family: "IM_Hyemin-Regular";
+  font-size: 40px;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.bonus {
+  margin-left: 50px;
+  background-color: #aed8ff;
+}
+
+.rottoNum_wrap .plus {
+  position: absolute;
+  display: inline-block;
+  font-family: "IM_Hyemin-Regular";
+  font-size: 50px;
+  height: 100px;
+  top: 160px;
+}
+
+.btn_wrap {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.btn {
+  border: none;
+  background-color: #a79c8e;
+  color: white;
+  font-family: "IM_Hyemin-Regular";
+  font-size: 20px;
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.btn:hover {
+  background-color: #8a8277;
+  transition-duration: 1.2s;
+}
+
+.btn:active {
+  background-color: #dfd7cc;
+  transition-duration: 0s;
+  color: black;
+}

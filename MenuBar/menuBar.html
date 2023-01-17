@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        html {
+            background-color: gray;
+        }
+        .menuBar {
+            display: fixed;
+            height: 100px;
+            width: 100%;
+            background-color: black;
+            z-index: 1;
+        } 
+
+        .menuBar button {
+            margin: 25px;
+            height: 100%;
+            width: 15%;
+            background-color: white;
+            color: grey;
+            text-align: center;
+            display: flex;
+            float: left;
+            border: 2px solid yellowgreen;
+            border-radius: 10%;
+        }
+
+        .pg {
+            width: 1000px;
+            height: 600px;
+            border-radius: 10px;
+            border: 6px solid black;
+            display: none;
+            float: left;
+            transition-timing-function: ease-out;
+            transition-duration: 0.5s;
+            margin-top: 70px;
+            background-color: black;
+            color: white;
+            position: relative;
+            overflow: auto;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .container div button {
+            background-color: black;
+            color: white;
+            border: 3px solid gray;
+            border-radius: 5%;
+        }
+
+        button:hover {
+            background-color: black;
+            border-color: red;
+        }
+
+        button:active {
+            background-color: white;
+            border-color: green;
+        }
+
+        #pg button:hover {
+            background-color: gray;
+        }
+
+        .cancelBt {
+            transition-timing-function: ease-out;
+            transition-duration: 0.15s;
+        }
+
+        .cancelBt:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .cancelBt:active {
+            background-color: black;
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="menuBar">
+        <button id="div1" onclick="showPg ('pg1')">
+            일
+        </button>
+        <button id="div2" onclick="showPg ('pg2')">
+            이
+        </button>
+        <button id="div3" onclick="showPg ('pg3')">
+            삼
+        </button>
+    </div>
+    <div class="container">
+
+    <div id="pg1" class="pg">
+        <button id="cancel1" class="cancelBt" onclick="closePg ('pg1')" style="display: fixed; top: 0; right: 0; height: 15%; position: absolute; width: 6%;">
+            <h4>X</h4>
+        </button>
+        <h1>fjkekfllsefkself<br>efsrgegrergeergfe<br>efseerggrgrergergefsef<br><br><br><br><br>feregererggewwgewegrfsfee<br><br><br><br><br><br>sefesfsefsefsef</h1>
+    </div>
+
+    <div id="pg2" class="pg">
+        <div id="divBar" style="display: fixed; right: 0; height: 15%; position: absolute; width: 6%;">
+        <button id="cancel2" class="cancelBt" onclick="closePg ('pg2')" style="height: 100%; width: 100%;">
+            <h4>X</h4>
+        </button>
+        </div>
+        <h1>fjkekfllsefkself<br>efsfe<br>efsefseffsefseffsefseffsefseffsefseffsefseffsefseffsefseffsefseffsefseffsefseffsefseffsefseffsefseffsefseffsefseffsefsef<br><br><br><br><br>fefsfee<br><br><br><br><br><br>sefesfsefsefsef</h1>
+    </div>
+
+    <div id="pg3" class="pg">
+        <button id="cancel3" class="cancelBt" onclick="closePg ('pg3')" style=" right: 0; height: 15%; position: absolute; width: 6%;">
+            <h4>X</h4>
+        </button>
+        <h1>fjkekfllsefkself<br>efsfe<br>efsefsef<br><br><br><br><br>fefsfee<br><br><br><br><br><br>sefesfsef<br><br><br><br><br>fefsfee<br><br><br><br><br><br>sefesfsef<br><br><br><br><br>fefsfee<br><br><br><br><br><br>sefesfsef<br><br><br><br><br>fefsfee<br><br><br><br><br><br>sefesfsefsefsef</h1>
+    </div>
+    </div>
+
+    <script>
+
+        let idStr = "";
+        let backGround = document.querySelector("body");
+
+        function showPg (idStr) {
+            document.getElementById(idStr).style.display = 'flex';
+        }
+
+        function closePg (idStr) {
+            document.getElementById(idStr).style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>

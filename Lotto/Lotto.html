@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>로또 추첨기</title>
+  </head>
+  <body>
+    <header>
+      <h2 class="title">로또 추첨기</h2>
+    </header>
+    <div class="content">
+      <div class="rottoNum_wrap">
+        <div class="ball" id="ball1"><span id="num1">?</span></div>
+        <div class="ball" id="ball2"><span id="num2">?</span></div>
+        <div class="ball" id="ball3"><span id="num3">?</span></div>
+        <div class="ball" id="ball4"><span id="num4">?</span></div>
+        <div class="ball" id="ball5"><span id="num5">?</span></div>
+        <div class="ball" id="ball6"><span id="num6">?</span></div>
+        <div class="plus">+</div>
+        <div class="ball bonus" id="ball7"><span id="num7">?</span></div>
+        <div class="btn_wrap">
+          <input
+            class="btn"
+            type="button"
+            value="추첨하기"
+            onclick="getNum()"
+          />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function getNum() {
+        let ball = document.getElementsByClassName("ball");
+
+        for (let i = 1; i < 8; i++) {
+          document.getElementById("num" + `${i}`).innerHTML = "?";
+          if (i != 7) {
+            document.getElementById("ball" + `${i}`).style.backgroundColor =
+              "#f1bbba";
+          } else {
+            document.getElementById("ball" + `${i}`).style.backgroundColor =
+              "#aed8ff";
+          }
+        }
+
+        let rottoNum = [];
+
+        function rand(min, max) {
+          return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+        for (let i = 0; i < 7; i++) {
+          rottoNum[i] = rand(1, 45);
+          for (let j = 0; j < i; j++) {
+            if (rottoNum[i] == rottoNum[j]) {
+              rottoNum[i] = rand(1, 45);
+            }
+          }
+        }
+
+        for (let i = 1; i < 8; i++) {
+          setTimeout(function () {
+            document.getElementById("num" + `${i}`).innerHTML = `${
+              rottoNum[i - 1]
+            }`;
+            document.getElementById(
+              "ball" + `${i}`
+            ).style.transitionTimingFunction = "ease-out";
+            document.getElementById("ball" + `${i}`).style.transitionDelay =
+              "0.01s";
+            document.getElementById("ball" + `${i}`).style.transitionDuration =
+              "0.2s";
+            if (i != 7) {
+              document.getElementById("ball" + `${i}`).style.backgroundColor =
+                "#f3cccb";
+            } else {
+              document.getElementById("ball" + `${i}`).style.backgroundColor =
+                "#bfe9ff";
+            }
+          }, i * 1000);
+        }
+      }
+    </script>
+  </body>
+</html>

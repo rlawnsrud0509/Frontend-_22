@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Starbucks Coffee Korea</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
+<link rel="stylesheet" href="./css/main-1.css">  /* css연결 */
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet" />
+<!--Google Material Icons-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+<style>
+    body {
+	font-family: 'Nanum Gothic', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.4;
+	color: #333;
+}
+
+a {
+	text-decoration: none;
+}
+
+img {
+	display: block;
+}
+
+.inner {
+	width: 1100px;
+	margin: 0px auto;
+	position: absolute;
+	background:orange;
+}
+
+header {
+	width: 100%;
+	position: relative;
+	top: 0;
+	z-index:9 ;
+	background-color: #F6F5F0;
+	border-bottom: 1px solid #c8c8c8;
+}
+
+header >.inner {
+	height: 120px;
+}
+
+header .logo {
+	height: 75px;
+	position : relative;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+}
+
+.sub-menu {
+	position: absolute;
+	top: 10px;
+	right: 0;
+	display: flex;
+	background:lightgreen;
+}
+
+.sub-menu ul.menu {
+	font-family:Arial, sans-serif;
+	display:flex;
+	list-style:none;
+}
+
+.sub-menu ul il {
+	position: relative;
+}
+
+.sub-menu ul.menu li a {
+	padding: 11px 16px;
+	display: block;
+	font-size:13px;
+	color:#656565;
+}
+
+.sub-menu ul.menu li a:hover {
+	color:black;
+}
+
+.sub-menu .search {
+	position: absolute;
+	height: 34px;
+	margin: auto;
+}
+
+.sub-menu .search input {
+	width: 190px;
+	height: inherit;
+	padding: 4px 10px;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	border-radius: 5px;
+	background-color:#fff;
+	color:#777;
+	font-size: 12px;
+}
+
+.sub-menu .search .material-icons {
+	height: 24px;
+	position: relative;
+	top: 0;
+	bottom: 0;
+	right: 5px;
+	margin: center;
+}
+</style>
+</head>
+<body>
+	<header>
+		<div class="inner">
+			<a href="/" class="logo">
+				<img src="./images/starbucks_logo.png" alt="STARBUCKS"/>
+			</a>
+			<div class="sub-menu">
+				<ol class="menu">
+					<li>
+						<a href="/signin">Sign in</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">MY Starbucks</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">Customer Service & Ideas</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">Find a store</a>
+					</li>
+				</ol>
+					<div class="search">search
+						<button type="text"/>
+						<div class="material-icon"></div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+  
+</body>
+</html>

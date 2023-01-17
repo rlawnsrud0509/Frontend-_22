@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+    <style>
+        #container{
+      display:flex;
+      width: 300px;
+    }  
+        #container div{
+      padding:0 20px 30px 20px;
+      margin:15px;
+      border:1px solid #ccc;
+      line-height:2;
+     
+    }
+        div h3 {
+      text-align:center;
+      font-weight:bold;
+}
+    </style>
+</head>
+<body>
+  <div id="container">
+  <script>
+    let i,j=1;
+               
+    for(i=1; i<=9; i++){
+        document.write("<div>"+ i + "단<br>");
+        for(j=1; j<=9; j++){
+            document.write(i + "X" + j + "=" + i*j + "<br>");
+        }
+        document.write("</div>");
+    }
+    document.write("</div>");
+		
+    </script>
+  
+</body>
+
+</html>

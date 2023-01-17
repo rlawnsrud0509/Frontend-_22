@@ -1,0 +1,64 @@
+.lottoDiv {
+  margin: 50px;
+  background-color: pink;
+  width: 1200px;
+  height: 400px;
+  justify-content: center;
+  display: flex;
+  position: relative;
+}
+
+.lotto {
+  display: flex;
+  margin: auto;
+  background-color: lightpink;
+  width: 150px;
+  height: 150px;
+  border: 0;
+  border-radius: 75px;
+  transition-timing-function: ease-out;
+  transition-duration: 0.25s;
+  text-align: center;
+  justify-content: center;
+}
+
+.bonus {
+  background-color: lightblue;
+  display: flex;
+  margin: auto;
+  width: 150px;
+  height: 150px;
+  border: 0;
+  border-radius: 75px;
+  transition-timing-function: ease-out;
+  transition-duration: 0.25s;
+  text-align: center;
+  justify-content: center;
+}
+
+.startL {
+  position: absolute;
+  width: 100px;
+  height: 50px;
+  border: 0;
+  border-radius: 5px;
+  background-color: lightpink;
+  top: 80%;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  transition-timing-function: ease-out;
+  transition-duration: 0.4s;
+}
+
+.startL:hover {
+  background-color: rgb(215, 159, 168);
+  cursor: pointer;
+}
+
+.startL:active {
+  background-color: lightpink;
+  cursor: default;
+  transition-timing-function: ease-out;
+  transition-duration: 0s;
+}

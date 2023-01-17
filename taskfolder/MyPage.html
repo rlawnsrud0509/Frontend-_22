@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+
+        body {
+            background-image: url("BackgroundImage.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #container {
+            width: 500px;
+            height: 150px;
+            margin-left: 230px;
+            margin-top: 50px;
+            background-color: beige;
+            color: rgb(60, 60, 60);
+            text-align: center;
+            border: 10px solid black;
+            border-radius: 3%;
+
+        }
+
+        #dd {
+            position: absolute;
+            width: 500px;
+            height: 300px;
+            margin: 300px 230px;
+            border:2px solid greenyellow;
+            background-color: aquamarine;
+            transition-timing-function: ease-out;
+            transition-duration: 0.15s;
+            border-radius: 1.5%;
+        }
+
+        #pp {
+            position:relative;
+            width: 200px;
+            float: left;
+            height: 100px;
+            background-color: pink;
+            margin: 80px 380px;
+            border:2px solid;
+            display: none;
+            transition-timing-function: ease-out;
+            transition-duration: 0.5s;
+        }
+
+        #ee {
+            width: 80px;
+            height: 80px;
+            margin: 20px;
+            transition-timing-function: ease-out;
+            transition-duration: 0.1s;
+            background-color: azure;
+            border-radius: 5%;
+        }
+
+        #ee:hover {
+            transform: scale(1.03);
+        }
+
+        #ee:active {
+            transform: scale(0.97);
+            background-color: black;
+            color: white;
+            border:2px solid white;
+        }
+
+        #text {
+            background-color: azure;
+            border-radius: 5%;
+            width: 160px;
+            height: 80px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="container">
+        <h1><br>박스 가지고 놀자</h1>
+    </div>
+
+    <div id="dd">
+        <button id="ee" onclick="clickbt5()" >눌러라</button>
+        <button id="ee" onclick="clickbt3()" >높이 변경</button>
+        <button id="ee" onclick="clickbt2()" >넓이 변경</button>
+        <button id="ee" onclick="clickbt4()" >초기화</button>
+        <button id="ee" onclick="clickbt1()" >색 변경</button>
+        <button id="ee" onclick="clickbt6()">글자 출력</button>
+        <input type="text" id="text" placeholder="내용을 입력하세요."></button>
+    </div>
+
+    <div id="pp">
+        눌러서 생겼습니다.
+    </div>
+    
+    <script>
+        let clickBt = document.getElementById("ee");
+        let sqaure1 = document.getElementById("pp");
+        let tBox = document.getElementById("text");
+        let textColor = ["red", "orange", "yellow", "yellowgreen", "green", "blue", "blueviolet", "violet", "pink"];
+        let i=0, b=0.1, a=1;
+
+        function clickbt1 () {
+            sqaure1.style.backgroundColor = textColor[i];
+            i++;
+            if(i>8) {
+                i=0;
+            }
+        }
+
+        function clickbt2 () {
+            sqaure1.style.transform = 'scaleX(1.5)';
+        }
+
+        function clickbt3 () {
+            sqaure1.style.transform = 'scaleY(1.5)';
+        }
+
+        function clickbt4 () {
+            sqaure1.style.transform = 'scale(1)';
+            sqaure1.style.backgroundColor = 'pink';
+            sqaure1.style.display = "none";
+            sqaure1.innerHTML = "눌러서 생겼습니다.";
+            tBox.value = "";
+            i=0;
+            b=0.1;
+        }
+
+        function clickbt5 () {
+            sqaure1.style.display="block";
+        }
+
+        function clickbt6 () {
+            sqaure1.innerHTML = tBox.value;
+        }
+
+        function clickbt7 () {
+            clickBt.style.transform='scale(0.9)';
+        }
+    </script>
+    </body>
+</html>

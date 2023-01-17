@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <title>Document</title>
+    <style>
+      body {
+        background-color: black;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+      }
+      #damageText {
+        position: relative;
+        z-index: 5;
+        width: 100px;
+        height: 40px;
+        font-size: 40px;
+        text-align: center;
+        color: white;
+        display: flex;
+      }
+      .catImage {
+        border: 30px solid blue;
+        border-radius: 15px;
+        width: 600px;
+        height: 360px;
+        position: relative;
+      }
+      #dealEffect {
+        position: relative;
+        display: flex;
+        top: -100%;
+        width: 100%;
+        height: 100%;
+        z-index: 6;
+        background-color: white;
+        opacity: 0;
+        border-radius: 15px;
+      }
+      #xpBar {
+        background-color: green;
+        width: 80px;
+        height: 400px;
+        position: absolute;
+        left: 85%;
+        text-align: center;
+        font-size: 30px;
+      }
+      #progBar {
+        background-color: red;
+        bottom: 0%;
+        width: 80px;
+        height: 0%;
+        position: absolute;
+        text-align: center;
+      }
+
+      .button:active {
+        background-color: black;
+        cursor: pointer;
+      }
+
+      #Info {
+        background-color: white;
+        width: 300px;
+        height: 400px;
+        position: absolute;
+        right: 77%;
+        text-align: center;
+        font-size: 30px;
+        justify-content: center;
+      }
+
+      #Info > ul {
+        list-style: none;
+        text-align: center;
+      }
+
+      #Info > ul > li {
+        font-size: 18px;
+        text-align: left;
+      }
+
+      #buttonDiv {
+        position: absolute;
+        display: flex;
+        top: 60%;
+        width: 100%;
+        height: 300px;
+        background-color: aqua;
+        justify-content: center;
+        align-items: center;
+      }
+      .button {
+        width: 400px;
+        height: 200px;
+        border: 7px solid black;
+        border-radius: 5px;
+        margin: auto;
+      }
+      #feed {
+        background-image: "food1.png";
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="damageText"></div>
+      <div class="imageDiv">
+        <img class="catImage" id="cat" src="Level1.png" />
+        <div id="dealEffect"></div>
+      </div>
+      <div id="xpBar">
+        HP
+        <div id="progBar"></div>
+      </div>
+      <div id="Info">
+        Info
+        <ul id="InfoList">
+          <li id="EnemyName">Lv.1 아기 고양이</li>
+          <li id="DamagePerClick">DPC: -</li>
+          <li id="Gold">돈 : 0원ㅋ</li>
+        </ul>
+      </div>
+      <div id="buttonDiv">
+        <button class="button" id="feed">밥 주기</button>
+        <button class="button" id="upgradeD">Lv1. 데미지 증가 1Gold</button>
+        <button class="button" id="critUp">크리티컬 확률 증가</button>
+      </div>
+    </div>
+    <script>
+      //일반 변수 선언
+
+      let EXP = 0,
+        setEXP = 50000,
+        Level = 1,
+        feed,
+        water,
+        crit = 0,
+        plusATD,
+        Gold = 0,
+        upgradeG = 1,
+        attLv = 1;
+
+      const EnemyName = [
+        "아기 고양이",
+        "고양이",
+        "멋쟁이 고양이",
+        "여장 고양이",
+        "탐정 고양이",
+        "깡패 고양이",
+        "온기잇",
+        "히히",
+      ];
+
+      //요소 변수 선언
+
+      let AttBtn = document.getElementById("feed");
+      let upgradeBtn = document.getElementById("upgradeD");
+      let Info = document.getElementById("InfoList");
+      let picHeight = parseInt($("#cat").css("height"));
+      let picWidth = parseInt($("#cat").css("width"));
+
+      AttBtn.addEventListener("click", function () {
+        crit = 0;
+        //공격력 확정
+        plusATD = Math.floor(
+          Math.random() *
+            (attLv * (attLv * (attLv / 4) + 15) -
+              (6 * (attLv * (attLv / 4)) +
+                (attLv * (attLv * (attLv / 4))) / 5)) +
+            (6 * (attLv * (attLv / 4)) + (attLv * (attLv * (attLv / 4))) / 5)
+        );
+
+        //골드 증가
+        Gold +=
+          (Math.floor(
+            Math.random() *
+              (attLv * (attLv * (attLv / 4) + 26) - 6 * (attLv * (attLv / 4)))
+          ) +
+            6 * (attLv * (attLv / 4))) /
+          50;
+
+        //정보창에 정보 출력
+        document.getElementById("EnemyName").innerHTML = `Lv.${Level} ${
+          EnemyName[Level - 1]
+        }`;
+        document.getElementById(
+          "DamagePerClick"
+        ).innerHTML = `DPC : ${Math.floor(
+          6 * (attLv * (attLv / 4)) + (attLv * (attLv * (attLv / 4))) / 5
+        )} ~ ${Math.floor(attLv * attLv * (attLv / 4) + 15)}`;
+        document.getElementById("Gold").innerHTML = `돈 : ${Math.floor(
+          Gold
+        )}원`;
+
+        //레벨 상승
+        if (EXP >= setEXP) {
+          Level++;
+          EXP -= setEXP;
+          setEXP = Math.floor(200000 * Level + setEXP * (1.6 + Level / 30));
+          document.getElementById("cat").src = `Level${Level}.png`;
+        }
+
+        if (Math.floor(Math.random() * 100) >= 95) {
+          crit = 1;
+        }
+
+        //밥줄때 경험치 계산(크리티컬)
+        if (crit == 0) {
+          EXP += plusATD;
+        } else {
+          EXP += plusATD * 8;
+        }
+
+        document.getElementById("cat").style.borderColor = "white";
+        document.getElementById("cat").style.borderColor = "blue";
+        document.getElementById("progBar").style.transitionTimingFunction =
+          "ease-out";
+        document.getElementById("progBar").style.transitionDuration = "0.2s";
+        document.getElementById("progBar").style.height = `${
+          (EXP / setEXP) * 100
+        }%`;
+        console.log(`${EXP}  ${setEXP} 업글돈:${upgradeG} atLv: ${attLv}`);
+
+        //데미지 문구 출력
+        if (crit == 0) {
+          document.getElementById("damageText").innerHTML = `${plusATD}`;
+          document.getElementById("damageText").style.left = `${
+            Math.random() * picWidth
+          }`;
+          document.getElementById("damageText").style.top = `${
+            Math.random() * picHeight
+          }`;
+        } else {
+          document.getElementById("damageText").innerHTML = `Critical! ${
+            plusATD * 8
+          }`;
+          document.getElementById("damageText").style.left = `${
+            Math.random() * picWidth
+          }`;
+          document.getElementById("damageText").style.top = `${
+            Math.random() * picHeight
+          }`;
+        }
+
+        //타격이펙트 출력
+        document.getElementById("dealEffect").style.opacity = "1";
+        setTimeout(function () {
+          document.getElementById("dealEffect").style.opacity = "0";
+        }, 20);
+      });
+
+      //무기업그레이드
+
+      upgradeBtn.addEventListener("click", function () {
+        if (Gold >= upgradeG) {
+          Gold -= upgradeG;
+          upgradeG += attLv + Math.floor(upgradeG * (0.2 * (attLv / 250)));
+          attLv++;
+          upgradeBtn.innerHTML = `Lv.${attLv} 데미지 증가 ${upgradeG}Gold`;
+
+          //정보창에 바뀐 정보 출력
+
+          document.getElementById(
+            "DamagePerClick"
+          ).innerHTML = `DPC : ${Math.floor(
+            6 * (attLv * (attLv / 4)) + (attLv * (attLv * (attLv / 4))) / 5
+          )} ~ ${Math.floor(attLv * attLv * (attLv / 4) + 15)}`;
+          document.getElementById("Gold").innerHTML = `돈 : ${Math.floor(
+            Gold
+          )}원`;
+          console.log("갈");
+        }
+      });
+    </script>
+  </body>
+</html>

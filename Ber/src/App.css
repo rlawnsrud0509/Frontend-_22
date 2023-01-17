@@ -1,0 +1,36 @@
+@font-face {
+  font-family: "ULTRA";
+  font-weight: 400;
+  src: url("./fonts/Ultra-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Noto-Sans";
+  font-weight: 400;
+  src: url("./fonts/Noto_Sans/NotoSans-Thin.ttf");
+}
+
+@font-face {
+  font-family: "GothicA1";
+  font-weight: 400;
+  src: url("./fonts/Gothic_A1/GothicA1-Regular.ttf");
+}
+
+@font-face {
+  font-family: "ROBOTO";
+  font-weight: 600;
+  src: url("./fonts/Roboto/Roboto-Regular.ttf");
+}
+
+.defaultValue {
+  display: none;
+}
+
+.Select::-webkit-scrollbar-thumb {
+  height: 50px;
+}
+
+html {
+  display: flex;
+  justify-content: center;
+}

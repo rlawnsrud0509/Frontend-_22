@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        background-color: black;
+      }
+      .menu-bar {
+        display: flex;
+        width: 100%;
+        height: 75px;
+        top: 0px;
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        border: 0;
+        border-radius: 3px;
+        position: relative;
+        justify-content: center;
+      }
+      .menu {
+        z-index: 3;
+        margin: auto 25px;
+        width: 100px;
+        height: 100%;
+        text-align: center;
+        line-height: 37.5px;
+      }
+      .menu:hover {
+        cursor: pointer;
+      }
+      .menu:active {
+        cursor: default;
+      }
+      .menu-logo {
+        font-size: 25px;
+      }
+
+      #effect-div {
+        z-index: 2;
+        position: absolute;
+        background-color: skyblue;
+        height: 100%;
+        width: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="menu-bar" class="menu-bar">
+      <div id="effect-div"></div>
+      <div class="menu menu-logo">
+        이상진<br />
+        &nbsp&nbsp키우기
+      </div>
+      <div id="menu-button" class="menu">Play Game</div>
+      <div id="menu-button" class="menu">About Game</div>
+      <div id="menu-button" class="menu">About Character</div>
+    </div>
+
+    <script>
+      let navbtn = document.getElementById("menu-button");
+      let nav = document.getElementById("menu-bar");
+      let ef = document.getElementById("effect-div");
+
+      navbtn.addEventListener("mouseover", () => {
+        ef.style.transitionTimingFunction = "ease-out";
+        ef.style.transitionDuration = "0.5s";
+        divWidth = 0;
+
+        for (let i = 0; i <= 100; i++) {
+          setTimeout(() => {
+            ef.style.width = `${i}%`;
+            for (let j = 0; j < 4; j++) {
+              document.getElementsByClassName(
+                "menu"
+              )[0].style.color = `rgb(135+${i}*2.55, 206+${i}*2.55, 235+$[i]*2.55)`;
+              document.getElementsByClassName(
+                "menu"
+              )[1].style.color = `rgb(135+${i}*2.55, 206+${i}*2.55, 235+$[i]*2.55)`;
+              document.getElementsByClassName(
+                "menu"
+              )[2].style.color = `rgb(135+${i}*2.55, 206+${i}*2.55, 235+$[i]*2.55)`;
+              document.getElementsByClassName(
+                "menu"
+              )[3].style.color = `rgb(135+${i}*2.55, 206+${i}*2.55, 235+$[i]*2.55)`;
+            }
+          }, 50);
+        }
+      });
+
+      navbtn.addEventListener("mouseleave", () => {
+        ef.style.transitionTimingFunction = "ease-out";
+        ef.style.transitionDuration = "0.5s";
+
+        for (let i = 100; i >= 0; i--) {
+          setTimeout(() => {
+            ef.style.width = `${i}%`;
+          }, 125);
+        }
+      });
+    </script>
+  </body>
+</html>

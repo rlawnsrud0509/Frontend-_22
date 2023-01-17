@@ -1,0 +1,154 @@
+html {
+  background-color: black;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+  color: white;
+  justify-content: center;
+}
+
+.innerContainer {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 9rem auto;
+  justify-content: center;
+}
+
+h1 {
+  position: absolute;
+}
+
+h2 {
+  margin-left: 1rem;
+}
+
+ol {
+  width: 100%;
+}
+
+.cube {
+  width: 100px;
+  height: 100px;
+  background-color: blueviolet;
+  margin: 1.5rem 1.5rem;
+}
+
+.innerDiv {
+  width: 60%;
+  border: 3px solid white;
+  margin: 4rem 15rem;
+}
+
+.hoverDiv {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  border: 3px solid white;
+  margin: 4rem 15rem;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.flex {
+  display: flex;
+}
+
+.flexDirectionRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.flexDirectionColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.back1:hover {
+  background-color: white;
+}
+
+.back2:hover {
+  background-color: blue;
+}
+
+.back3:hover {
+  background-color: red;
+}
+
+.back4:hover {
+  background-color: green;
+}
+
+.size1:hover {
+  transform: scale(1.25);
+}
+
+.size2:hover {
+  transform: scale(1.5);
+}
+
+.size3:hover {
+  transform: scale(1.75);
+}
+
+.size4:hover {
+  transform: scale(2);
+}
+
+.aback1:active {
+  background-color: white;
+}
+
+.aback2:active {
+  background-color: blue;
+}
+
+.aback3:active {
+  background-color: red;
+}
+
+.aback4:active {
+  background-color: yellow;
+}
+
+.asize1:active {
+  transform: scale(1.25);
+}
+
+.asize2:active {
+  transform: scale(1.5);
+}
+
+.asize3:active {
+  transform: scale(1.75);
+}
+
+.asize4:active {
+  transform: scale(2);
+}
+
+.scriptDiv {
+  display: flex;
+  flex-direction: row;
+  border: 3px so
+
+}
